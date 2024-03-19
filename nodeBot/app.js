@@ -1,10 +1,9 @@
 const Discord = require("discord.js");
+const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
 const OpenAI = require("openai");
 const openai = new OpenAI({apiKey: "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"});
 
 // Use openai.complete() or other methods to generate text
-
-const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
