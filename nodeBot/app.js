@@ -29,12 +29,13 @@ client.on("messageCreate", function (message) {
         async function ask() {
             try {
                 // TODO: Use the OpenAI API to generate a response to the user's input.
-                const response = await openai.completions.create({
+                const response = await openai.chat.completions.create({
+                    messages: [{ role: "user", content: `${strArgs}` }],
                     model: "gpt-3.5-turbo",
-                    prompt: `${strArgs}`,
-                    max_tokens: 30
+                    response_format: { "type": "text" },
+                    max_tokens: 60,
                 });
-                message.reply(`Bot: ${completion.choices[0].text}`);
+                message.reply(`Bot: ${response.choices[0].message.content}`);
             } catch (err) {
                 message.reply(`Error: ${err}`);
             }
