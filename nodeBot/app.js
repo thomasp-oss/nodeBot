@@ -23,16 +23,23 @@ client.on("messageCreate", function (message) {
     }
 
     else if (command === "ask") {
-        const question = prompt("What would you like to ask?");
-        (async () => {
-            const maxTokens = 60;
-            const response = await openai.complete({
-                engine: "text-davinci-002",
-                prompt: question,
-                max_tokens: maxTokens
-            });
-            message.reply(`Bot: ${response}`);
-        })();
+        strArgs = args.join(' '); //
+        async function ask() {
+            try {
+                const response = await openai.Completion.create({
+                    engine: "text-davinci-002",
+                    prompt: strArgs,
+                    max_tokens: 60
+                });
+
+                const text = response.data.choices[0].text.trim();
+                message.reply(`Bot: ${text}`);
+            } catch (err) {
+                console.error(err);
+                message.reply(`Sorry, I couldn't generate a response.`);
+            }
+        }
+        ask();
     }
 });
 

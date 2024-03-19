@@ -12,6 +12,6 @@
   "eslintConfig": {},
   "dependencies": {
     "discord.js": "13.0.0",
-    "openai": "4.28.0"
+    "openai": "4.29.0"
   }
 }
