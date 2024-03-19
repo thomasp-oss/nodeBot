@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
 const textGenerator = require("@kudoai/chatgpt.js");
+const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
@@ -22,11 +22,9 @@ client.on("messageCreate", function (message) {
         const question = prompt("What would you like to ask?");
         (async () => {
             const response = await textGenerator.askAndGetReply(question);
-            console.log(response); // Example output: 'Hello user, I'm ChatGPT!'
+            message.reply(`Bot: ${response}`);
         })();
     }
-
 });
 
-
-    client.login(config.BOT_TOKEN);
+client.login(config.BOT_TOKEN);
