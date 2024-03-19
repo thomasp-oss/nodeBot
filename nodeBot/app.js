@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const OpenAI = require('openai');
-const openai = new OpenAI('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');
+const OpenAI = require("openai");
+const openai = new OpenAI({apiKey: "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"});
 
 // Use openai.complete() or other methods to generate text
 
