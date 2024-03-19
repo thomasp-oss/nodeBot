@@ -1,5 +1,9 @@
 const Discord = require("discord.js");
-const textGenerator = require("chatgpt.js");
+const OpenAI = require('openai');
+const openai = new OpenAI('your-api-key');
+
+// Use openai.complete() or other methods to generate text
+
 const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
@@ -21,7 +25,12 @@ client.on("messageCreate", function (message) {
     else if (command === "ask") {
         const question = prompt("What would you like to ask?");
         (async () => {
-            const response = await textGenerator.askAndGetReply(question);
+            const maxTokens = 60;
+            const response = await openai.complete({
+                engine: "text-davinci-002",
+                prompt: question,
+                max_tokens: maxTokens
+            });
             message.reply(`Bot: ${response}`);
         })();
     }
