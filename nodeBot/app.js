@@ -30,7 +30,7 @@ client.on("messageCreate", function (message) {
     else if (command === "ask") {
         strArgs = args.join(' ');
         // add async
-        function ask() {
+        async function ask() {
             try {
                 const response = await openai.Completion.create({
                     engine: "text-davinci-002",
