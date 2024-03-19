@@ -1,9 +1,7 @@
 const Discord = require("discord.js");
 const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
 const OpenAI = require("openai");
-const openai = new OpenAI({apiKey: "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"});
-
-// Use openai.complete() or other methods to generate text
+const openai = new OpenAI({ apiKey: "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" });
 
 /**
  * Represents a Discord client.
@@ -31,12 +29,12 @@ client.on("messageCreate", function (message) {
         async function ask() {
             try {
                 // TODO: Use the OpenAI API to generate a response to the user's input.
-                const response = await openai.completions({
-                    engine: "text-davinci-002",
+                const response = await openai.completions.create({
+                    model: "gpt-3.5-turbo",
                     prompt: `${strArgs}`,
-                    max_tokens: 60
+                    max_tokens: 30
                 });
-                message.reply(`Bot: ${response.data.choices[0].text}`);
+                message.reply(`Bot: ${completion.choices[0].text}`);
             } catch (err) {
                 message.reply(`Error: ${err}`);
             }
