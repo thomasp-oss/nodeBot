@@ -25,10 +25,9 @@ client.on("messageCreate", function (message) {
         message.reply(`This message test had a latency of ${timeTaken}ms.`);
     } else if (command === "ask") {
         const strArgs = args.join(' ');
-        // add async
+
         async function ask() {
             try {
-                // TODO: Use the OpenAI API to generate a response to the user's input.
                 const response = await openai.chat.completions.create({
                     messages: [{ role: "user", content: `${strArgs}` }],
                     model: "gpt-3.5-turbo",
