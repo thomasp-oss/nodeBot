@@ -21,7 +21,7 @@ client.on("messageCreate", function (message) {
     else if (command === "ask") {
         const question = prompt("What would you like to ask?");
         (async () => {
-            const response = await chatgpt.askAndGetReply(question);
+            const response = await textGenerator.askAndGetReply(question);
             console.log(response); // Example output: 'Hello user, I'm ChatGPT!'
         })();
     }
