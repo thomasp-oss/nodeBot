@@ -25,24 +25,20 @@ client.on("messageCreate", function (message) {
     if (command === "test") {
         const timeTaken = Date.now() - message.createdTimestamp;
         message.reply(`This message test had a latency of ${timeTaken}ms.`);
-    }
-
-    else if (command === "ask") {
-        strArgs = args.join(' ');
+    } else if (command === "ask") {
+        const strArgs = args.join(' ');
         // add async
         async function ask() {
             try {
-                const response = await openai.Completion.create({
+                // TODO: Use the OpenAI API to generate a response to the user's input.
+                const response = await openai.completions({
                     engine: "text-davinci-002",
-                    prompt: strArgs,
+                    prompt: `${strArgs}`,
                     max_tokens: 60
                 });
-
-                const text = response.data.choices[0].text.trim();
-                message.reply(`Bot: ${text}`);
+                message.reply(`Bot: ${response.data.choices[0].text}`);
             } catch (err) {
-                console.error(err);
-                message.reply(`Sorry, I couldn't generate a response.`);
+                message.reply(`Error: ${err}`);
             }
         }
         ask();
