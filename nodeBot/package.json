@@ -11,6 +11,7 @@
   },
   "eslintConfig": {},
   "dependencies": {
+    "@kudoai/chatgpt.js": "2.6.7",
     "discord.js": "13.0.0"
   }
 }
