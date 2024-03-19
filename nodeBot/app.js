@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
+const textGenerator = require("@kudoai/chatgpt.js")
 
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
