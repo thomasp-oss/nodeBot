@@ -26,6 +26,10 @@ client.on("messageCreate", function (message) {
     } else if (command === "ask") {
         const strArgs = args.join(' ');
 
+        /**
+         * Asks a question to the OpenAI chatbot and sends the response to the Discord channel.
+         * @async
+         */
         async function ask() {
             try {
                 const response = await openai.chat.completions.create({
@@ -34,7 +38,7 @@ client.on("messageCreate", function (message) {
                     response_format: { "type": "text" },
                     max_tokens: 60,
                 });
-                message.reply(`Bot: ${response.choices[0].message.content}`);
+                message.reply(`Bot: ${response.choices[0].message.content}. Respond in one scentence.`);
             } catch (err) {
                 message.reply(`Error: ${err}`);
             }
