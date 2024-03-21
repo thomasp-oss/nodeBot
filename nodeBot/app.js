@@ -34,7 +34,7 @@ client.on("messageCreate", function (message) {
             try {
                 const response = await openai.chat.completions.create({
                     messages: [{ role: "user", content: `${strArgs}` }],
-                    model: "gpt-3.5-turbo",
+                    model: "gpt-4",
                     response_format: { "type": "text" },
                     max_tokens: 60,
                 });
