@@ -33,12 +33,12 @@ client.on("messageCreate", function (message) {
         async function ask() {
             try {
                 const response = await openai.chat.completions.create({
-                    messages: [{ role: "user", content: `${strArgs}` }],
+                    messages: [{ role: "user", content: `${strArgs}. Respond in one scentence.` }],
                     model: "gpt-4",
                     response_format: { "type": "text" },
                     max_tokens: 60,
                 });
-                message.reply(`Bot: ${response.choices[0].message.content}. Respond in one scentence.`);
+                message.reply(`Bot: ${response.choices[0].message.content}`);
             } catch (err) {
                 message.reply(`Error: ${err}`);
             }
