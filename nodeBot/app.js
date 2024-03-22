@@ -11,7 +11,7 @@ const openai = new OpenAI({ apiKey: "sk-HkTDO7CF00QPhFwGikZdT3BlbkFJ75BTAG9AIx5u
  */
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
 
-const prefix = "$";
+const prefix = "!";
 client.on("messageCreate", function (message) {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
