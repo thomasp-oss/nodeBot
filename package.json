@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "discord.js": "^14.17.1",
-    "openai": "^4.29.1",
-    "openai.js": "^2.1.3"
-  }
-}
