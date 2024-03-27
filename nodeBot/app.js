@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
+const config = require("/Users/thomaspennant/nodeBot/config.json");
 const OpenAI = require("openai");
 const openai = new OpenAI({ apiKey: "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" });
 
