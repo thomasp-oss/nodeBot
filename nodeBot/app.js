@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require("/Users/thomaspennant/nodeBot/config.json");
 const OpenAI = require("openai");
-const openai = new OpenAI({ apiKey: "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" });
+const openai = new OpenAI({ apiKey: "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" }); // Old API Key
 
 /**
  * Represents a Discord client.
