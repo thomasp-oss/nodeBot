@@ -1,6 +1,6 @@
-import { Client } from "discord.js";
-import { BOT_TOKEN } from "C:/Users/penna/source/repos/nodeBot/config.json";
-import OpenAI from "openai";
+const Discord = require("discord.js");
+const config = require("C:/Users/penna/source/repos/nodeBot/config.json");
+const OpenAI = require("openai");
 const openai = new OpenAI({ apiKey: "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" });
 
 /**

@@ -7,9 +7,19 @@
     "name": ""
   },
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "@eslint/js": "^9.3.0",
+    "eslint": "^9.3.0",
+    "globals": "^15.3.0"
   },
-  "eslintConfig": {},
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": "latest"
+        },
+
+        "env": {
+            "es6": true
+        }
+    },
   "dependencies": {
     "discord.js": "13.0.0",
     "openai": "4.29.1"
